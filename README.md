@@ -76,7 +76,7 @@ python doors_ransom.py
 
 - **Original Project**: [Doors-Ransom-A-90-Simulation](https://github.com/masashira0212-stack/Doors-Ransom-A-90-Simulation/releases/tag/v1.2.0.2) by masashira0212-stack
 - **GDI Effects inspired by**:
-  - [Holzer](https://github.com/pankoza2/Holzer) - Flip, Rainbow, Melter, CircleSquare, Colors, Bright, Invert effects
+  - [Holzer](https://github.com/pankoza2-pl/Holzer-safety/releases) - Flip, Rainbow, Melter, CircleSquare, Colors, Bright, Invert effects
   - [Thallium](https://github.com/pankoza2-pl/Thallium.exe/) - Dark stretch, TextOut, diagonal zoom effects
   - [dlwxzypwwzdtd](https://github.com/pankoza2-pl/dlwxzypwwzdtd.exe-Malware) - SRCERASE, gradient, shader effects
   - [salinewin](https://github.com/pankoza2-pl/salinewin.exe-Malware) - Bouncing balls, bezier, sine wave, profect effects
