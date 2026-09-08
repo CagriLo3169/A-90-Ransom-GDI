@@ -8,42 +8,49 @@ A fan-made visual simulation of the A-90 Ransom with GDI screen effects sourced 
 
 Added 25 real Win32 GDI screen effects using API calls:
 
-| # | Effect | Source |
-|---|--------|--------|
-| 1 | Screen shake (SRCCOPY offset) | Custom |
-| 2 | Negative boxes (DSTINVERT) | Custom |
-| 3 | Tunnel zoom (StretchBlt) | Custom |
-| 4 | Vertical strip copy | Custom |
-| 5 | Horizontal band shift | Custom |
-| 6 | Sine wave wobble | Custom |
-| 7 | Psychedelic blend (SRCPAINT) | Custom |
-| 8 | Ghost trail (SRCAND) | Custom |
-| 9 | Full invert (SRCINVERT) | Custom |
-| 10 | Block scatter | Custom |
-| 11 | Magnifier zoom | Custom |
-| 12 | Horizontal flip | Holzer |
-| 13 | Vertical flip | Holzer |
-| 14 | Rainbow PatBlt | Holzer Rainbow |
-| 15 | Dark stretch (0x999999) | Thallium |
-| 16 | Expanding circle/rect (NOTSRCCOPY) | Holzer CircleSquare |
-| 17 | Horizontal melter | Holzer Melter3 |
-| 18 | Color shift (0x666666/0x999999) | Holzer Colors |
-| 19 | Diagonal stretch zoom | Thallium |
-| 20 | Bright stripe (SRCPAINT) | Holzer Bright |
-| 21 | SRCERASE blend | dlwxzypwwzdtd |
-| 22 | Rainbow text scatter | Thallium TextOut |
-| 23 | Fast invert+shift | Holzer Invert |
-| 24 | Border wrap + PatBlt | salinewin profect |
-| 25 | Subtle shake | Custom |
+| # | Effect | ROP Code | Source |
+|---|--------|----------|--------|
+| 1 | Heavy Screen Shake | SRCCOPY | Original |
+| 2 | Negative Boxes | DSTINVERT | Original |
+| 3 | Tunnel Zoom | SRCCOPY StretchBlt | Original |
+| 4 | Vertical Strip Copy | SRCCOPY | Original |
+| 5 | Horizontal Band Shift | SRCCOPY | Original |
+| 6 | Sine Wave Wobble | SRCCOPY | Original |
+| 7 | Psychedelic Blend | SRCPAINT | Original |
+| 8 | Ghost Trail | SRCAND | Original |
+| 9 | Full Invert | SRCINVERT | Original |
+| 10 | Block Scatter | SRCCOPY | Original |
+| 11 | Magnifier Zoom | SRCCOPY StretchBlt | Original |
+| 12 | Horizontal Flip | SRCCOPY StretchBlt | Holzer |
+| 13 | Vertical Flip | SRCCOPY StretchBlt | Holzer |
+| 14 | Rainbow PatBlt | PATINVERT | Holzer Rainbow |
+| 15 | Dark Stretch | 0x999999 | Thallium |
+| 16 | Expanding Circle/Rect | NOTSRCCOPY | Holzer CircleSquare |
+| 17 | Heavy Melt Rows | SRCCOPY | Holzer Melter3 |
+| 18 | Color Shift | 0x666666/0x999999 | Holzer Colors |
+| 19 | Diagonal Stretch | SRCCOPY StretchBlt | Thallium |
+| 20 | Bright Stripe | SRCPAINT | Holzer Bright |
+| 21 | SRCERASE Blend | 0x00440328 | dlwxzypwwzdtd |
+| 22 | Text Scatter | TextOutW | Thallium TextOut |
+| 23 | Fast Invert+Shift | NOTSRCCOPY | Holzer Invert |
+| 24 | Border Wrap + PatBlt | SRCCOPY + PATINVERT | salinewin |
+| 25 | **Melt (1px drip)** | SRCCOPY | **Python-gdi-repo** |
+| 26 | **Expanding Circles** | NOTSRCCOPY + EllipticRgn | **Python-gdi-repo** |
+| 27 | **Rainbow Hell** | PATINVERT HSV | **Python-gdi-repo** |
+| 28 | **NOTSRCCOPY Shake** | NOTSRCCOPY | **BwHell** |
+| 29 | **Sine Wave** | SRCCOPY | **Python-GDI-Screen-Effects** |
+| 30 | **Tunnel Zoom** | SRCCOPY StretchBlt | **Python-gdi-repo** |
+| 31 | **Melt Wide** | SRCCOPY | **Python-gdi-repo** |
+| 32 | **Diagonal Stretch** | SRCCOPY StretchBlt | **Python-gdi-repo** |
+| 33 | **Multi Band Shift** | SRCCOPY | **Python-GDI-Screen-Effects** |
+| 34 | **Heavy Invert+Shift** | SRCINVERT | Original variant |
+| 35 | **Big Region Invert** | NOTSRCCOPY | **Python-gdi-repo** |
 
 ### Chain System
 
-Each effect triggers a chain multiplier:
-- Starts at 1 effect
-- Each step: 50% stay / 50% add +1
-- Max 25 effects per frame
-- Average: ~2-3 effects per frame
-- Rare jackpot: 15+ effects (~2.7% chance in 90secs.)
+- **Max chain limit increased**: 25 → 35
+- 50% chance to add +1 effect each step, starts at 1
+- Average ~3-4 effects per frame, rare jackpot 20+ effects
 
 ## How to Run
 
